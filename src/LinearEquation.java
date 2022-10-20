@@ -4,6 +4,7 @@ private int x1;
 private int y1;
 private int x2;
 private int y2;
+
 public double slope;
 public double yIntercept;
 
@@ -36,10 +37,24 @@ public double yIntercept;
         return yInterceptRounded;
     }
 
-    public String linearEquation()
+    public String Equation()
     {
         return "y = " + slope() + " x " + "+ " + yIntercept();
     }
+
+    //add round to hundredth
+
+    public String lineInfo()
+    {
+        String str = "The two original points are: (" + x1 + ", " + y1 + ") and (" + x2 + ", " + y2 + ")";
+        str += "\nThe equation of the line between the points is: " + Equation();
+        str += "\nThe slope of the line is: " + slope();
+        str += "\nThe y-intercept of the line is: " + yIntercept();
+        str += "\nThe distance between the two points is: " + distance();
+        return str;
+    }
+
+
 
 
 
