@@ -5,36 +5,37 @@ private int y1;
 private int x2;
 private int y2;
 
-public double slope;
-public double yIntercept;
+;
 
-    public LinearEquation(int x1, int y1, int x2, int y2) {}
+
+    //add round to hundredth
+    public double roundToHundredth(double toRound)
+    {
+        toRound = (double) Math.round(toRound + 100) / 100;
+        return toRound;
+    }
+
+    public LinearEquation(int x1, int y1, int x2, int y2) {
+        this.x1 = x1;
+        this.x2 = x2;
+        this.y1 = y1;
+        this.y2 = y2;
+    }
 
     public double distance()
     {
-        double distance1 = y1 - x1;
-        double distance2 = y2 - x2;
-        double distanceFinal = distance2 - distance1;
-        double roundtoHundredth = Math.round(distanceFinal);
-        return roundtoHundredth;
+        return roundToHundredth(Math.sqrt((Math.pow(y2-y1, 2)) + Math.pow(x2-x1, 2)));
         }
 
     public double slope()
     {
         double slope = (y2 - y1) / (x2 - x1);
-        double slopeRounded = Math.round(slope);
-        this.slope = slopeRounded;
-        return slopeRounded;
+        return roundToHundredth(slope);
     }
-    //add yIntercept
-    //y= mx+b
-    // y/mx = b
 
     public double yIntercept(){
         double b = (y1 / ((y2-y1)/(x2-x1) * x1));
-        double yInterceptRounded = Math.round(b);
-        this.yIntercept = yInterceptRounded;
-        return yInterceptRounded;
+        return roundToHundredth(yIntercept());
     }
 
     public String Equation()
@@ -42,7 +43,7 @@ public double yIntercept;
         return "y = " + slope() + " x " + "+ " + yIntercept();
     }
 
-    //add round to hundredth
+
 
     public String lineInfo()
     {
@@ -53,6 +54,14 @@ public double yIntercept;
         str += "\nThe distance between the two points is: " + distance();
         return str;
     }
+
+    public String enterXValue(double xValue)
+    {
+        double part1 = slope() * xValue + yIntercept();
+        return "(" + xValue + ", " + part1 + ")";
+    }
+
+
 
 
 

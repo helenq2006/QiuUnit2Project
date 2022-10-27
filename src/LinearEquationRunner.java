@@ -30,9 +30,13 @@ public class LinearEquationRunner {
         //if points are on vertical line and slope is undefined
         if (x1 == x2) {
             System.out.println("These points are on a vertical line: x = " + x1);
+
+        } else {
+
+            LinearEquation coordinates = new LinearEquation(x1, y1, x2, y2);
+            System.out.print(coordinates.lineInfo());
         }
 
-        LinearEquation coordinates = new LinearEquation(x1, y1, x2, y2);
 
 
 
