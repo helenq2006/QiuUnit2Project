@@ -1,16 +1,15 @@
 public class LinearEquation {
 
-private int x1;
-private int y1;
-private int x2;
-private int y2;
+    private int x1;
+    private int y1;
+    private int x2;
+    private int y2;
 
-;
+    ;
 
 
     //add round to hundredth
-    public double roundToHundredth(double toRound)
-    {
+    public double roundToHundredth(double toRound) {
         toRound = (double) Math.round(toRound + 100) / 100;
         return toRound;
     }
@@ -22,26 +21,70 @@ private int y2;
         this.y2 = y2;
     }
 
-    public double distance()
-    {
-        return roundToHundredth(Math.sqrt((Math.pow(y2-y1, 2)) + Math.pow(x2-x1, 2)));
+    public double distance() {
+        return roundToHundredth(Math.sqrt((Math.pow(y2 - y1, 2)) + Math.pow(x2 - x1, 2)));
+    }
+
+    public double slope() {
+        double num = y2 - y1;
+        double den = x2 - x1;
+        return roundToHundredth(num / den);
+    }
+
+    public double yIntercept() {
+        double b = -1 * slope() * x1;
+        b += y1;
+        return roundToHundredth(b);
+    }
+
+    public String Equation() {
+        int num = y2 - y1;
+        int den = x2 - x1;
+        String slope = "";
+        boolean negY;
+        boolean origin;
+
+        if (yIntercept() == 0) {
+            origin = true;
+            negY = false;
+        } else if (yIntercept() == Math.abs(yIntercept())) {
+            negY = false;
+            origin = false;
+        } else {
+            negY = true;
+            origin = false;
+        }
+        if (y1 == y2) {
+            return "y = " + (int) yIntercept();
         }
 
-    public double slope()
-    {
-        double slope = (y2 - y1) / (x2 - x1);
-        return roundToHundredth(slope);
-    }
+        if (((double) num/den) == -1) {
+            slope = "-x";
+        } else if (num/den == 1) {
+            slope = "x";
+        } else if (num % den == 0) {
+            slope = num/den + "x";
+        } else if (num % den != 0) {
+            if (num < 0 && den < 0) {
+                slope = (-1 * num) + "/" + (-1 * den) + "x";
+            } else if (num < 0 && den > 0) {
+                slope = num + "/" + den + "x";
+            } else if (num > 0 && den > 0) {
+                slope = num + "/" + den + "x";
+            }
+        }
 
-    public double yIntercept(){
-        double b = (y1 / ((y2-y1)/(x2-x1) * x1));
-        return roundToHundredth(yIntercept());
-    }
+        if (negY) {
+            return "y = " + slope + " - " + Math.abs(yIntercept());
+        } else if (origin) {
+            return "y = " + slope;
+        } else {
+            return "y = " + slope + " + " + yIntercept();
+        }
+        }
 
-    public String Equation()
-    {
-        return "y = " + slope() + " x " + "+ " + yIntercept();
-    }
+
+
 
 
 
@@ -54,6 +97,7 @@ private int y2;
         str += "\nThe distance between the two points is: " + distance();
         return str;
     }
+
 
     public String enterXValue(double xValue)
     {
