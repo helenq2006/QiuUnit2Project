@@ -22,7 +22,7 @@ public class LinearEquationRunner {
         int comma2 = coord2.indexOf(",");
         int coord2Len = coord2.length();
         String q1 = coord2.substring(1,comma2);
-        String q2 = coord2.substring((comma + 2), (coord2Len - 1 ));
+        String q2 = coord2.substring((comma + 1), (coord2Len - 1 ));
         int x2 = Integer.parseInt(q1);
         int y2 = Integer.parseInt(q2);
 

@@ -10,7 +10,7 @@ public class LinearEquation {
 
     //add round to hundredth
     public double roundToHundredth(double toRound) {
-        toRound = (double) Math.round(toRound + 100) / 100;
+        toRound = (double) Math.round(toRound * 100) / 100;
         return toRound;
     }
 
@@ -28,6 +28,8 @@ public class LinearEquation {
     public double slope() {
         double num = y2 - y1;
         double den = x2 - x1;
+        System.out.println(num);
+        System.out.println(den);
         return roundToHundredth(num / den);
     }
 
@@ -40,6 +42,7 @@ public class LinearEquation {
     public String Equation() {
         int num = y2 - y1;
         int den = x2 - x1;
+        double Slope = slope();
         String slope = "";
         boolean negY;
         boolean origin;
@@ -58,12 +61,12 @@ public class LinearEquation {
             return "y = " + (int) yIntercept();
         }
 
-        if (((double) num/den) == -1) {
+        if  (Slope == -1) {
             slope = "-x";
-        } else if (num/den == 1) {
+        } else if (Slope == 1) {
             slope = "x";
         } else if (num % den == 0) {
-            slope = num/den + "x";
+            slope = Slope + "x";
         } else if (num % den != 0) {
             if (num < 0 && den < 0) {
                 slope = (-1 * num) + "/" + (-1 * den) + "x";
