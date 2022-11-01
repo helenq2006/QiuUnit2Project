@@ -11,6 +11,7 @@ public class LinearEquationRunner {
         String coord1 = scan.nextLine();
         int comma = coord1.indexOf(",");
         int coord1Len = coord1.length();
+        System.out.println(comma);
         String p1 = coord1.substring(1, comma);
         String p2 = coord1.substring((comma + 2), (coord1Len - 1));
         int x1 = Integer.parseInt(p1);

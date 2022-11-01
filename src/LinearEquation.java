@@ -1,5 +1,5 @@
 public class LinearEquation {
-
+// instant variables
     private int x1;
     private int y1;
     private int x2;
