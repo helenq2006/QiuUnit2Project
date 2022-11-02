@@ -33,14 +33,10 @@ public class LinearEquationRunner {
             System.out.println("These points are on a vertical line: x = " + x1);
 
         } else {
-
+// prints the line info for the coords given
             LinearEquation coordinates = new LinearEquation(x1, y1, x2, y2);
             System.out.print(coordinates.lineInfo());
         }
-
-
-
-
 
 
 

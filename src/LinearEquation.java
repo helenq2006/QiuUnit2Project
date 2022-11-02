@@ -14,6 +14,7 @@ public class LinearEquation {
         return toRound;
     }
 
+    //initializes variables
     public LinearEquation(int x1, int y1, int x2, int y2) {
         this.x1 = x1;
         this.x2 = x2;
@@ -21,10 +22,12 @@ public class LinearEquation {
         this.y2 = y2;
     }
 
+    // calculates distance formula
     public double distance() {
         return roundToHundredth(Math.sqrt((Math.pow(y2 - y1, 2)) + Math.pow(x2 - x1, 2)));
     }
 
+    //calculates the slope
     public double slope() {
         double num = y2 - y1;
         double den = x2 - x1;
@@ -33,12 +36,14 @@ public class LinearEquation {
         return roundToHundredth(num / den);
     }
 
+    //calculates y intercept
     public double yIntercept() {
         double b = -1 * slope() * x1;
         b += y1;
         return roundToHundredth(b);
     }
 
+    //makes the slope equation
     public String Equation() {
         int num = y2 - y1;
         int den = x2 - x1;
@@ -91,6 +96,7 @@ public class LinearEquation {
 
 
 
+        // line info
     public String lineInfo()
     {
         String str = "The two original points are: (" + x1 + ", " + y1 + ") and (" + x2 + ", " + y2 + ")";
@@ -102,6 +108,7 @@ public class LinearEquation {
     }
 
 
+    // combines x value with equation
     public String enterXValue(double xValue)
     {
         double part1 = slope() * xValue + yIntercept();
